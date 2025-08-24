@@ -267,7 +267,7 @@ def main():
         )
     
     # Load selected model
-    model_path = "best_random_forest_model.pkl" if model_option == "Random Forest" else "best_xgboost_model.pkl"
+    model_path = "Models/best_random_forest_model.pkl" if model_option == "Random Forest" else "Models/best_xgboost_model.pkl"
     
     try:
         model, model_features = load_model(model_path)
@@ -555,3 +555,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
