@@ -10,7 +10,7 @@ import json
 
 # Page configuration
 st.set_page_config(
-    page_title="N.H.E - Loan Approval Classifier",
+    page_title="LoanVision AI - Loan Approval Classifier",
     page_icon="🏦",
     layout="wide"
 )
@@ -245,7 +245,7 @@ def confidence_bar(probability, threshold):
 # Main app
 def main():
     # Logo and branding
-    st.markdown('<div class="logo">By N.H.E </div>', unsafe_allow_html=True)
+    st.markdown('<div class="logo">LoanVision AI</div>', unsafe_allow_html=True)
     st.markdown('<h1 class="main-header">Loan Approval Classifier</h1>', unsafe_allow_html=True)
     
     # Model selection
@@ -268,7 +268,7 @@ def main():
         )
     
     # Load selected model
-    model_path = "Models/best_random_forest_model.pkl" if model_option == "Random Forest" else "Models/best_xgboost_model.pkl"
+    model_path = "best_random_forest_model.pkl" if model_option == "Random Forest" else "best_xgboost_model.pkl"
     
     try:
         model, model_features = load_model(model_path)
@@ -303,7 +303,7 @@ def main():
             no_of_dependents = st.slider("Number of Dependents", 0, 5, 0)
             income_annum = st.number_input("Annual Income", min_value=0, value=500000, step=10000)
             loan_amount = st.number_input("Loan Amount", min_value=0, value=300000, step=10000)
-            loan_term = st.slider("Loan Term (months)", 1, 30, 10)
+            loan_term = st.slider("Loan Term (years)", 1, 30, 10)
             cibil_score = st.slider("CIBIL Score", 300, 900, 700)
             
         with col2:
@@ -459,7 +459,7 @@ def main():
                                 st.markdown('<div class="metric-card">Approval Rate</div>', unsafe_allow_html=True)
                                 st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: white;">{approval_rate:.1%}</div>', unsafe_allow_html=True)
                             
-                                                       # Pie chart (smaller size)
+                            # Pie chart (smaller size)
                             fig, ax = plt.subplots(figsize=(5, 5))  # Reduced from default (6,6) to (5,5)
                             labels = ['Approved', 'Rejected']
                             sizes = [approved_count, rejected_count]
@@ -527,6 +527,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
