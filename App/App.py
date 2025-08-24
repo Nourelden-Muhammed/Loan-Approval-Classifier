@@ -303,7 +303,7 @@ def main():
             no_of_dependents = st.slider("Number of Dependents", 0, 5, 0)
             income_annum = st.number_input("Annual Income", min_value=0, value=500000, step=10000)
             loan_amount = st.number_input("Loan Amount", min_value=0, value=300000, step=10000)
-            loan_term = st.slider("Loan Term (years)", 1, 30, 10)
+            loan_term = st.slider("Loan Term (months)", 1, 30, 10)
             cibil_score = st.slider("CIBIL Score", 300, 900, 700)
             
         with col2:
@@ -527,3 +527,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
