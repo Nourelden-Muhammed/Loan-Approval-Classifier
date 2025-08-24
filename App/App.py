@@ -10,7 +10,7 @@ import json
 
 # Page configuration
 st.set_page_config(
-    page_title="LoanVision AI - Loan Approval Classifier",
+    page_title="N.H.E - Loan Approval Classifier",
     page_icon="🏦",
     layout="wide"
 )
@@ -245,7 +245,7 @@ def confidence_bar(probability, threshold):
 # Main app
 def main():
     # Logo and branding
-    st.markdown('<div class="logo">LoanVision AI</div>', unsafe_allow_html=True)
+    st.markdown('<div class="logo">By N.H.E </div>', unsafe_allow_html=True)
     st.markdown('<h1 class="main-header">Loan Approval Classifier</h1>', unsafe_allow_html=True)
     
     # Model selection
@@ -268,7 +268,7 @@ def main():
         )
     
     # Load selected model
-    model_path = "Models/best_random_forest_model.pkl" if model_option == "Random Forest" else "Models/best_xgboost_model.pkl"
+    model_path = "models/best_random_forest_model.pkl" if model_option == "Random Forest" else "models/best_xgboost_model.pkl"
     
     try:
         model, model_features = load_model(model_path)
@@ -527,4 +527,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
