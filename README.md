@@ -64,7 +64,6 @@ Hyperparameter tuning was performed using **GridSearchCV** for Decision Tree, Ra
 - Decision Tree alone is prone to overfitting.  
 
 ---
-
 ## 💾 Model Saving & Deployment
 - Models saved with **Joblib** as `.pkl` files:
   - `best_random_forest_model.pkl`  
@@ -74,14 +73,13 @@ Hyperparameter tuning was performed using **GridSearchCV** for Decision Tree, Ra
   - Single prediction (manual applicant input).  
   - Batch predictions (CSV upload).  
   - Visualization of approval vs rejection distribution.  
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://loan-approval-project-by-nhe.streamlit.app/)
 
 Run locally:
 ```bash
 streamlit run App/App.py
 ```
 ---
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://loan-approval-project-by-nhe.streamlit.app/)
-
 
 By **N**ourelden **H**any **E**lhakiem
 
