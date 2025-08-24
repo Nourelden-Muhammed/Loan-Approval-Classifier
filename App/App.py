@@ -61,11 +61,12 @@ st.markdown("""
         padding: 1rem;
     }
     .metric-card {
-        background-color: #f8f9fa;
+        background-color: #1e1e1e;
         border-radius: 10px;
         padding: 15px;
         text-align: center;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: white;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -244,7 +245,7 @@ def confidence_bar(probability, threshold):
 # Main app
 def main():
     # Logo and branding
-    st.markdown('<div class="logo">by N.H.E</div>', unsafe_allow_html=True)
+    st.markdown('<div class="logo">By N.H.E </div>', unsafe_allow_html=True)
     st.markdown('<h1 class="main-header">Loan Approval Classifier</h1>', unsafe_allow_html=True)
     
     # Model selection
@@ -302,7 +303,7 @@ def main():
             no_of_dependents = st.slider("Number of Dependents", 0, 5, 0)
             income_annum = st.number_input("Annual Income", min_value=0, value=500000, step=10000)
             loan_amount = st.number_input("Loan Amount", min_value=0, value=300000, step=10000)
-            loan_term = st.slider("Loan Term (months)", 1, 30, 10)
+            loan_term = st.slider("Loan Term (years)", 1, 30, 10)
             cibil_score = st.slider("CIBIL Score", 300, 900, 700)
             
         with col2:
@@ -396,35 +397,6 @@ def main():
         # File upload
         uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
         
-        # Template downloads
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            # Raw template
-            raw_template = pd.DataFrame(columns=[
-                "no_of_dependents", "income_annum", "loan_amount", "loan_term", "cibil_score",
-                "residential_assets_value", "commercial_assets_value", "luxury_assets_value",
-                "bank_asset_value", "education", "self_employed"
-            ])
-            csv = raw_template.to_csv(index=False)
-            st.download_button(
-                label="Download Raw Template",
-                data=csv,
-                file_name="loan_approval_raw_template.csv",
-                mime="text/csv"
-            )
-        
-        with col2:
-            # Processed template with model's exact feature names
-            processed_template = pd.DataFrame(columns=model_features)
-            csv = processed_template.to_csv(index=False)
-            st.download_button(
-                label="Download Processed Template",
-                data=csv,
-                file_name="loan_approval_processed_template.csv",
-                mime="text/csv"
-            )
-        
         drop_extra = st.checkbox("Automatically drop extra columns", value=True)
         
         if uploaded_file is not None:
@@ -476,7 +448,7 @@ def main():
                             col1, col2, col3, col4 = st.columns(4)
                             with col1:
                                 st.markdown('<div class="metric-card">Total Applications</div>', unsafe_allow_html=True)
-                                st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold;">{len(results_df)}</div>', unsafe_allow_html=True)
+                                st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: white;">{len(results_df)}</div>', unsafe_allow_html=True)
                             with col2:
                                 st.markdown('<div class="metric-card">Approved</div>', unsafe_allow_html=True)
                                 st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: SeaGreen;">{approved_count}</div>', unsafe_allow_html=True)
@@ -485,7 +457,7 @@ def main():
                                 st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: Tomato;">{rejected_count}</div>', unsafe_allow_html=True)
                             with col4:
                                 st.markdown('<div class="metric-card">Approval Rate</div>', unsafe_allow_html=True)
-                                st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold;">{approval_rate:.1%}</div>', unsafe_allow_html=True)
+                                st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: white;">{approval_rate:.1%}</div>', unsafe_allow_html=True)
                             
                             # Pie chart
                             fig, ax = plt.subplots()
@@ -555,4 +527,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
