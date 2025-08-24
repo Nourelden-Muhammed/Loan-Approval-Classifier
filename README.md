@@ -73,6 +73,9 @@ Hyperparameter tuning was performed using **GridSearchCV** for Decision Tree, Ra
   - Single prediction (manual applicant input).  
   - Batch predictions (CSV upload).  
   - Visualization of approval vs rejection distribution.  
+
+Click the button below to try the app on **Streamlit Cloud**:  
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://loan-approval-project-by-nhe.streamlit.app/)
 
 Run locally:
