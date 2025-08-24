@@ -460,7 +460,7 @@ def main():
                                 st.markdown(f'<div style="text-align: center; font-size: 24px; font-weight: bold; color: white;">{approval_rate:.1%}</div>', unsafe_allow_html=True)
                             
                             # Pie chart
-                            fig, ax = plt.subplots()
+                            fig, ax = plt.subplots(figsize=(4, 4))
                             labels = ['Approved', 'Rejected']
                             sizes = [approved_count, rejected_count]
                             colors = ['SeaGreen', 'Tomato']
@@ -527,4 +527,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
